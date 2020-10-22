@@ -31,6 +31,8 @@ coverage report
 
 ## Playing the Game
 
+Launch the game with `python game.py` from your favorite terminal application.
+
 The game is played with 2 players, with an 8 x 8 board. 
 
 Each player places a single ship of length 3, using the coordinate system LETTERNUMBER, for example A7, or B3.
