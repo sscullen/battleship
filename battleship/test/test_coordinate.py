@@ -3,7 +3,7 @@ from pathlib import Path
 
 TEST_DIR = Path(__file__).absolute().parent
 
-from ..coordinate import Coordinate
+from battleship.coordinate import Coordinate
 
 class TestCoordinate(unittest.TestCase):
     def setUp(self):
@@ -36,6 +36,17 @@ class TestCoordinate(unittest.TestCase):
         
     def test_coordinate_invalid_format(self):
         coordinate_string = "AA"
+
+        with self.assertRaises(Exception):
+            Coordinate(coordinate_string)
+
+    def test_coordinate_invalid_out_of_range(self):
+        coordinate_string = "I8"
+
+        with self.assertRaises(Exception):
+            Coordinate(coordinate_string)
+
+        coordinate_string = "9A"
 
         with self.assertRaises(Exception):
             Coordinate(coordinate_string)

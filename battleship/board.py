@@ -10,16 +10,27 @@ import string
 class Board:
 
     def __init__(self, width=8, height=8):
-
         self.width = width
         self.height = height
 
-        # create an empty board and store it
+        # create an empty board
         self.board_state = [[" "] * width for i in range(height)]
         
+    def update_board(self, coordinate, hit):
+        """Update the board using the coordinate numeric indexes.
+
+        If hit is true, an "H" is stored in that location, else an "M" is.
+        """
         
+        if hit:
+            self.board_state[coordinate.row_idx][coordinate.col_idx] = "H"
+        else:
+            self.board_state[coordinate.row_idx][coordinate.col_idx] = "M"
+
+
     def __str__(self):
-        
+        """Utilizes tabulate to provide a visual representation of the board state."""
+
         # Create grid headers for the table
         headers = [letter for letter in string.ascii_uppercase[:self.width]]
 
