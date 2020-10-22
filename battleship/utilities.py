@@ -24,8 +24,6 @@ def place_ship():
                 print(f"Try again!")
                 coord_1 = None
                 continue
-            else:
-                print("OK!")
         
         coord_2_string = input("Ship coordinate 2: ")
         try:
@@ -34,8 +32,7 @@ def place_ship():
             print(f"Sorry, that's not a valid coordinate ({str(e)})")
             print(f"Try again!")
             coord_2 = None
-        else:
-            print("OK!")
+            continue
 
         print("Checking if ship placement is valid (linear with length 3)...")
 
@@ -56,7 +53,7 @@ def place_ship():
     
 def get_target_coordinate():
     """Get input from the user for their selected target"""
-    
+
     coord_valid = False
 
     while not coord_valid:

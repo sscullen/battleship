@@ -24,6 +24,8 @@ Shaun Cullen, 2020-10-21
 """
 
 import os
+import platform
+import time
 
 from battleship.board import Board
 from battleship.coordinate import Coordinate
@@ -79,11 +81,17 @@ So a valid ship placement would be A7 to C7 or E1 to E3.
     idx_of_winner = None
 
     print("The ships are placed! Get ready to fire!")
+    # Pause a little before the players turns start
+    time.sleep(2)
 
     while not game_over:
+
         for idx, player in enumerate(player_list):
-            if game_over:
-                break
+            # Clear the screen before switch players
+            if platform.system() == "Linux":
+                os.system("clear")
+            elif platform.system() == "Windows":
+                os.system("cls")
 
             print(f"Player {idx + 1}, take aim!")
             target_coord = get_target_coordinate()
@@ -109,6 +117,11 @@ So a valid ship placement would be A7 to C7 or E1 to E3.
                 player.board.update_board(target_coord, False)
                 
             print(player.board)
+            
+            if game_over:
+                break
+
+            input("Press enter to switch players...")
 
     print(f"Congratulations Player {idx_of_winner + 1}, you win!")
     print("Please play again soon! Bye!")
