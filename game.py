@@ -1,4 +1,4 @@
-""" battleship_game.py
+""" game.py
 
 This is a basic implementation of the Battleship boardgame. There are 
 2 players, each with 1 ship. Players place their ships using coordinate tuples 
